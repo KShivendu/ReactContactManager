@@ -27,13 +27,13 @@ class Contacts extends Component {
       ]
     };
   }
-  deleteContact = id => {
-    console.log(id);
-    const { contacts } = this.state;
+  // deleteContact = id => {
+  //   console.log(id);
+  //   const { contacts } = this.state;
 
-    const newContacts = contacts.filter(contact => contact.id != id);
-    this.setState({ contacts: newContacts });
-  };
+  //   const newContacts = contacts.filter(contact => contact.id != id);
+  //   this.setState({ contacts: newContacts });
+  // };
   render() {
     // const { contacts } = this.state;
 
@@ -48,7 +48,7 @@ class Contacts extends Component {
                 <Contact
                   key={contact.id}
                   contact={contact}
-                  deleteClickHandler={this.deleteContact.bind(this, contact.id)}
+                  // deleteClickHandler={this.deleteContact.bind(this, contact.id)}
                   // key={contact.id}
                   // name={contact.name}
                   // phone={contact.phone + 1}

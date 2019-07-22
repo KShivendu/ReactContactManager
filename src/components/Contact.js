@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { tsConstructSignatureDeclaration } from "@babel/types";
+import { Consumer } from "../context";
+
 // import "./contact.css";
 class Contact extends Component {
   // Somehow not working
@@ -9,7 +10,10 @@ class Contact extends Component {
   //   email: PropTypes.string.isRequired,
   //   phone: PropTypes.string.isRequired
   // };
-
+  onDeleteClick = (id, dispatch) => {
+    // console.log(id, dispatch);
+    dispatch({ type: "DELETE_CONTACT", payload: id });
+  };
   state = {
     showContactInfo: false
   };
@@ -25,47 +29,62 @@ class Contact extends Component {
   // };
 
   render() {
-    const { name, phone } = this.props.contact;
+    const { id, name, phone } = this.props.contact;
     const { showContactInfo } = this.state;
 
     return (
-      <div className="card card-body mb-3">
-        <h4>
-          {name}
-          <i
-            onClick={() => {
-              this.setState({ showContactInfo: !this.state.showContactInfo });
-            }}
-            className="fa fa-sort-down"
-            style={{ cursor: "pointer" }}
-          />
-          <i
-            className="fa fa-times"
-            style={{ cursor: "pointer", color: "red", float: "right" }}
-            onClick={() => {
-              this.props.deleteClickHandler();
-            }}
-          />
-
-          {/* .bind(this,....) this is necessary */}
-          {/* You can do this also I discovered this (not shown in tutorial)
+      <Consumer>
+        {value => {
+          const { dispatch } = value;
+          return (
+            <div className="card card-body mb-3">
+              <h4>
+                {name}{" "}
+                <i
+                  onClick={e => {
+                    this.setState({
+                      showContactInfo: !this.state.showContactInfo
+                    });
+                    // console.log(e.target.style[0]);
+                  }}
+                  className="fa fa-sort-down"
+                  style={{
+                    cursor: "pointer",
+                    transform: !this.state.showContactInfo
+                      ? "rotate(-90deg)"
+                      : "rotate(0deg)"
+                  }}
+                />
+                <i
+                  className="fa fa-times"
+                  style={{ cursor: "pointer", color: "red", float: "right" }}
+                  onClick={this.onDeleteClick.bind(this, id, dispatch)}
+                  // onClick={() => {
+                  //   this.props.deleteClickHandler();
+                  // }}
+                />
+                {/* .bind(this,....) this is necessary */}
+                {/* You can do this also I discovered this (not shown in tutorial)
           <i onClick={() => this.onShowClick()} className="fa fa-sort-down" /> and then use use 
           onShowClick() {
            console.log(this.state);
             }
             above render 
             */}
-          {/* To put extra space use {" "} */}
-        </h4>
-        {showContactInfo ? (
-          <ul className="list-group">
-            <li className="list-group-item">
-              Email: {this.props.contact.email}
-            </li>
-            <li className="list-group-item">Number: {phone}</li>
-          </ul>
-        ) : null}
-      </div>
+                {/* To put extra space use {" "} */}
+              </h4>
+              {showContactInfo ? (
+                <ul className="list-group">
+                  <li className="list-group-item">
+                    Email: {this.props.contact.email}
+                  </li>
+                  <li className="list-group-item">Number: {phone}</li>
+                </ul>
+              ) : null}
+            </div>
+          );
+        }}
+      </Consumer>
     );
   }
 }
@@ -81,5 +100,5 @@ class Contact extends Component {
 Contact.propTypes = {
   contact: PropTypes.object.isRequired
 };
-
+// It's not necessary for you to provide propType for each prop do only where you want to put a criteria
 export default Contact;
