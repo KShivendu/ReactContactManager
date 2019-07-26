@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/ReactContactManager/static/css/main.2cce8147.chunk.css",
+    "main.js": "/ReactContactManager/static/js/main.6142a0c1.chunk.js",
+    "main.js.map": "/ReactContactManager/static/js/main.6142a0c1.chunk.js.map",
+    "runtime~main.js": "/ReactContactManager/static/js/runtime~main.9c43f537.js",
+    "runtime~main.js.map": "/ReactContactManager/static/js/runtime~main.9c43f537.js.map",
+    "static/css/2.266e55a5.chunk.css": "/ReactContactManager/static/css/2.266e55a5.chunk.css",
+    "static/js/2.9e121fd8.chunk.js": "/ReactContactManager/static/js/2.9e121fd8.chunk.js",
+    "static/js/2.9e121fd8.chunk.js.map": "/ReactContactManager/static/js/2.9e121fd8.chunk.js.map",
+    "index.html": "/ReactContactManager/index.html",
+    "precache-manifest.0eea7f4ed23a8ad3256d673bb1aa8526.js": "/ReactContactManager/precache-manifest.0eea7f4ed23a8ad3256d673bb1aa8526.js",
+    "service-worker.js": "/ReactContactManager/service-worker.js",
+    "static/css/2.266e55a5.chunk.css.map": "/ReactContactManager/static/css/2.266e55a5.chunk.css.map",
+    "static/css/main.2cce8147.chunk.css.map": "/ReactContactManager/static/css/main.2cce8147.chunk.css.map",
+    "static/media/logo.svg": "/ReactContactManager/static/media/logo.5d5d9eef.svg"
+  }
+}
