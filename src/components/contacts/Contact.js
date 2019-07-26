@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Consumer } from "../context";
-
+import { Consumer } from "../../context";
+import axios from "axios";
+import { Link } from "react-router-dom";
 // import "./contact.css";
 class Contact extends Component {
   // Somehow not working
@@ -10,8 +11,10 @@ class Contact extends Component {
   //   email: PropTypes.string.isRequired,
   //   phone: PropTypes.string.isRequired
   // };
-  onDeleteClick = (id, dispatch) => {
+  onDeleteClick = async (id, dispatch) => {
     // console.log(id, dispatch);
+    console.log(`https://jsonplaceholder.typicode.com/users/${id}`);
+    await axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`);
     dispatch({ type: "DELETE_CONTACT", payload: id });
   };
   state = {
@@ -63,6 +66,18 @@ class Contact extends Component {
                   //   this.props.deleteClickHandler();
                   // }}
                 />
+                {"   "}
+                <Link to={`contact/edit/${id}`}>
+                  <i
+                    className="fa fa-edit"
+                    style={{
+                      cursor: "pointer",
+                      float: "right",
+                      color: "black",
+                      marginRight: "1rem"
+                    }}
+                  />
+                </Link>
                 {/* .bind(this,....) this is necessary */}
                 {/* You can do this also I discovered this (not shown in tutorial)
           <i onClick={() => this.onShowClick()} className="fa fa-sort-down" /> and then use use 
