@@ -2,7 +2,7 @@
   "name": "contactmanager",
   "version": "0.1.0",
   "private": true,
-  "homepage":"https://kshivendu.github.io/ReactContactManager"
+  "homepage": "https://kshivendu.github.io/ReactContactManager",
   "dependencies": {
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
@@ -16,7 +16,7 @@
     "uuid": "^3.3.2"
   },
   "scripts": {
-    "deploy":"npm run build&&gh-pages -d build"
+    "deploy": "npm run build&&gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
